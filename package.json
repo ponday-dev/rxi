@@ -1,0 +1,32 @@
+{
+  "name": "rxi",
+  "version": "0.1.0",
+  "description": "IndexedDB with RxJS",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ponday-dev/rxi.git"
+  },
+  "keywords": [
+    "IndexedDB",
+    "TypeScript",
+    "RxJS"
+  ],
+  "author": "ponday-dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ponday-dev/rxi/issues"
+  },
+  "homepage": "https://github.com/ponday-dev/rxi#readme",
+  "dependencies": {
+    "babel-loader": "^7.1.1",
+    "babel-preset-latest": "^6.24.1",
+    "rxjs": "^5.4.2",
+    "ts-loader": "^2.2.2",
+    "typescript": "^2.4.1",
+    "webpack": "^3.0.0"
+  }
+}
