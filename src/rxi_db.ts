@@ -5,11 +5,11 @@ export class RxiDB {
 
   constructor(private db: IDBDatabase) { }
 
-  store(keys: string[], mode: string): [RxiTransaction, RxiStore[]] {
+  store(keys: string[], mode: string, needTransaction = false): [RxiTransaction, RxiStore[]] | RxiStore[] {
     const transaction = this.db.transaction(keys, <IDBTransactionMode> mode);
     const stores = keys.map(key => new RxiStore(transaction.objectStore(key)));
 
-    return [new RxiTransaction(transaction), stores];
+    return needTransaction ? [new RxiTransaction(transaction), stores] : stores;
   }
 
   createObjectStore(name: string, optionalParameters?: IDBObjectStoreParameters): RxiStore {
