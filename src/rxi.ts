@@ -1,10 +1,19 @@
 import { Observable } from 'rxjs';
 import { RxiDB } from './rxi_db';
 
+/**
+ * Rxi entry point.
+ */
 export class Rxi {
 
   constructor(private name: string) {}
 
+  /**
+   * Specify database version.
+   * When this Rxi instance already opened with the old version number, parameter: onUpgradeNeeded will be called.
+   * (The upgradeneeded event occurs when you call the open function.)
+   * @param ver database version.
+   */
   version(ver: number = 1): object {
     return {
       open(onUpgradeNeeded?: (RxiDB) => any): Observable<RxiDB | ErrorEvent> {
@@ -13,6 +22,11 @@ export class Rxi {
     };
   }
 
+  /**
+   * Open IndexedDB.
+   * This function is alias of 'Rxi.version(1)'
+   * @param onUpgradeNeeded This function called by upgradeneeded event.
+   */
   open(onUpgradeNeeded?: (RxiDB) => any): object {
     return this._open(1, onUpgradeNeeded);
   }
